@@ -31,7 +31,7 @@ foreach ($instance in $instances)
     Write-Output $DatabaseEngine
 
 
-    # Database Engine
+    # SQL Agent
     $SQLAgent = Get-WmiObject Win32_Service -ComputerName $instance.Hostname | Where-Object -Property DisplayName -EQ "SQL Server Agent ($($instance.InstanceName))" | Select-Object DisplayName, StartName, State, Startmode
 
     Write-Output $SQLAgent
